@@ -33,7 +33,11 @@ namespace Employees
         {
             this.Close();
         }
-
+        /// <summary>
+        /// Добавляем новый департамент
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnAddDeptClick_Click(object sender, RoutedEventArgs e)
         {
             d(department_TextBox.Text);

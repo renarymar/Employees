@@ -28,7 +28,7 @@ namespace Employees
         }
 
         /// <summary>
-        /// Тут должно быть что-то вроде _employeesList.Add..., но я пока не знаю как получить доступ к _employeesList
+        /// Добавляем сотрудника
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

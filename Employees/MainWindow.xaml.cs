@@ -78,7 +78,6 @@ namespace Employees
 
         /// <summary>
         /// Клик по кнопке ADD открывает новую форму для добавления сотрудника
-        /// (не знаю как получить доступ к _employeesList)
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -111,6 +110,11 @@ namespace Employees
 
         }
 
+        /// <summary>
+        /// Вызов новой форма для сотздания нового департамента
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnAddDeptClick_Click(object sender, RoutedEventArgs e)
         {
 

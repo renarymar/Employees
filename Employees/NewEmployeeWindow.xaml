@@ -77,6 +77,7 @@
             HorizontalAlignment="Center" 
             VerticalAlignment="Center"
             Width="80" Click="btnCancel_Click"/>
+        
 
     </Grid>
 </Window>
