@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Collections.ObjectModel;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -17,11 +18,15 @@ namespace Employees
     /// <summary>
     /// Interaction logic for NewDepartmentWindow.xaml
     /// </summary>
+    /// 
     public partial class NewDepartmentWindow : Window
+        
     {
-        public NewDepartmentWindow()
+        DeptDelegate d;
+        public NewDepartmentWindow(DeptDelegate sender)
         {
             InitializeComponent();
+            d = sender;
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
@@ -31,6 +36,8 @@ namespace Employees
 
         private void BtnAddDeptClick_Click(object sender, RoutedEventArgs e)
         {
+            d(department_TextBox.Text);
+            this.Close();
 
         }
     }

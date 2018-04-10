@@ -19,14 +19,13 @@ namespace Employees
     /// </summary>
     public partial class NewEmployeeWindow : Window
     {
-        public NewEmployeeWindow()
+        EmplDelegate d;
+
+        public NewEmployeeWindow(EmplDelegate sender)
         {
             InitializeComponent();
+            d = sender;
         }
-
-
-        
-
 
         /// <summary>
         /// Тут должно быть что-то вроде _employeesList.Add..., но я пока не знаю как получить доступ к _employeesList
@@ -35,7 +34,9 @@ namespace Employees
         /// <param name="e"></param>
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            
+            int _id = Int32.Parse(employeeID_textBox.Text);
+            d(_id, firstName_textBox.Text, lastName_textBox.Text, department_textBox.Text);
+            this.Close();
         }
 
         /// <summary>

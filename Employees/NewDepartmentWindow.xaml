@@ -19,6 +19,7 @@
         </Grid.ColumnDefinitions>
 
         <TextBox Grid.ColumnSpan="2"
+                 Name="department_TextBox"
                  Height="30"
                  Width="180"/>
 

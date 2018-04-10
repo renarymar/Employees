@@ -16,7 +16,10 @@ using System.Windows.Shapes;
 
 namespace Employees
 {
-    
+    public delegate void DeptDelegate(string data);
+    public delegate void EmplDelegate(int id, string firstName, string lastName, string departmentName);
+
+
     public partial class MainWindow : Window
     {
         ObservableCollection<Employee> _employeesList;
@@ -27,6 +30,16 @@ namespace Employees
             InitializeComponent();
             EmployeesListInitialization();
             DepartmentsListInitialization();
+        }
+
+        void deptfunc(string data)
+        {
+            _departmentsList.Add(new Department(data));
+        }
+
+        void emplfunc(int id, string firstName, string lastName, string departmentName)
+        {
+            _employeesList.Add(new Employee(id, firstName, lastName, departmentName));
         }
 
         /// <summary>
@@ -71,7 +84,7 @@ namespace Employees
         /// <param name="e"></param>
         private void BtnAddEmplClick_Click(object sender, RoutedEventArgs e)
         {
-            NewEmployeeWindow newEmployeeWindow = new NewEmployeeWindow { Owner = this };
+            NewEmployeeWindow newEmployeeWindow = new NewEmployeeWindow(new EmplDelegate(emplfunc));
             newEmployeeWindow.Show();
             
         }
@@ -100,8 +113,11 @@ namespace Employees
 
         private void BtnAddDeptClick_Click(object sender, RoutedEventArgs e)
         {
-            NewDepartmentWindow newDepartmentWindow = new NewDepartmentWindow { Owner = this };
+
+            NewDepartmentWindow newDepartmentWindow = new NewDepartmentWindow(new DeptDelegate(deptfunc));
+            newDepartmentWindow.Owner = this;
             newDepartmentWindow.Show();
+            
         }
     }
 }

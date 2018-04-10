@@ -30,7 +30,7 @@
                   MouseDoubleClick="EmployeeList_MouseDoubleClick">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Height="18" FontSize="14" Text="{Binding}"/>
+                    <TextBlock Name="TextBlock_EMP" Height="18" FontSize="14" Text="{Binding}"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
          </ListView>
@@ -41,7 +41,7 @@
                   MouseDoubleClick="DepartmentList_MouseDoubleClick">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Height="18" FontSize="14" Text="{Binding}"/>
+                    <TextBlock Name="TextBlock_DEP" Height="18" FontSize="14" Text="{Binding}"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
 
