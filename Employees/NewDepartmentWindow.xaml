@@ -1,0 +1,44 @@
+﻿<Window x:Class="Employees.NewDepartmentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Employees"
+        mc:Ignorable="d"
+        Title="NewDepartmentWindow" Height="150" Width="300">
+   
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70*" />
+            <RowDefinition Height="30*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <TextBox Grid.ColumnSpan="2"
+                 Height="30"
+                 Width="180"/>
+
+        <Button Grid.Column="0"
+                Grid.Row="1"
+                Name="btnAddEmplClick"
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center"
+                Width="80"
+                Content="Confirm"
+                Click="BtnAddDeptClick_Click" />
+                
+        <Button Grid.Column="1"
+                Grid.Row="1"
+                Name="btnCancelClick"
+                Width="80"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Content="Cancel"
+                Click="btnCancel_Click" />
+
+    </Grid>
+</Window>
