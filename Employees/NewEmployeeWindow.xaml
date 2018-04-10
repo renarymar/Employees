@@ -29,7 +29,9 @@
             HorizontalAlignment="Center" 
             Height="20" Width="180" 
             TextWrapping="Wrap" 
-            VerticalAlignment="Center"/>
+            VerticalAlignment="Center"
+            Text="Табельный номер..."
+            />
         
         <TextBox 
             Grid.Column="1"
@@ -38,7 +40,7 @@
             HorizontalAlignment="Center" 
             Height="20" Width="180" 
             TextWrapping="Wrap" 
-            Text="" 
+            Text="Департамент..." 
             VerticalAlignment="Center"/>
         
         <TextBox 
@@ -48,15 +50,16 @@
             HorizontalAlignment="Center" 
             Height="20" Width="180" 
             TextWrapping="Wrap" 
-            Text="" 
-            VerticalAlignment="Center"/>
+            VerticalAlignment="Center"
+            Text="Имя..."/>
 
         <TextBox
             Grid.Column="1"
             Grid.Row="1"
             Name="lastName_textBox"
             HorizontalAlignment="Center" 
-            VerticalAlignment="Center" Width="180" />
+            VerticalAlignment="Center" Width="180"
+            Text="Фамилия..."/>
         
         <Button 
             Grid.Column="0"

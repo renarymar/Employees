@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Employees"
         mc:Ignorable="d"
-        Title="NewDepartmentWindow" Height="150" Width="300">
+        Title="Add New Department" Height="150" Width="300">
    
     <Grid>
         <Grid.RowDefinitions>
@@ -21,7 +21,8 @@
         <TextBox Grid.ColumnSpan="2"
                  Name="department_TextBox"
                  Height="30"
-                 Width="180"/>
+                 Width="180"
+                 Text="Имя департамета..."/>
 
         <Button Grid.Column="0"
                 Grid.Row="1"
