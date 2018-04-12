@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,33 +11,61 @@ namespace Employees
     /// <summary>
     /// Класс Сотрудник
     /// </summary>
-    class Employee
+    class Employee : INotifyPropertyChanged
     {
-        public string FirstName;
-        public string LastName;
-        public string DepartmentName;
-        public int ID;
+        private int id;
+        private string firstName;
+        private string lastName;
+        private string departmentName;
 
-        public override string ToString()
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged([CallerMemberName]string property = "")
         {
-            return $"{ID}\t{FirstName}\t{LastName}\t{DepartmentName}";
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
 
-        /// <summary>
-        /// Конструктор для создания нового сотрудника
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="firstName"></param>
-        /// <param name="lastName"></param>
-        /// <param name="departmentName"></param>
-        public Employee(int id, string firstName, string lastName, string departmentName)
+        public int ID
         {
-            ID = id;
-            FirstName = firstName;
-            LastName = lastName;
-            DepartmentName = departmentName;
+            set
+            {
+                id = value;
+                OnPropertyChanged("ID");
+            }
+            get => id;
+            
         }
+        public string FirstName
+        {
+            set
+            {
+                firstName = value;
+                OnPropertyChanged("FirstName");
+            }
+            get => firstName;
 
-        
+        }
+        public string LastName
+        {
+            set
+            {
+                lastName = value;
+                OnPropertyChanged("LastName");
+            }
+            get => lastName;
+
+        }
+        public string DepartmentName
+        {
+            set
+            {
+                departmentName = value;
+                OnPropertyChanged("DepartmentName");
+            }
+            get => departmentName;
+
+        }
+       
+
     }
 }

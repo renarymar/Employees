@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,24 +20,13 @@ namespace Employees
     /// </summary>
     public partial class NewEmployeeWindow : Window
     {
-        EmplDelegate d;
 
-        public NewEmployeeWindow(EmplDelegate sender)
+        public NewEmployeeWindow()
         {
             InitializeComponent();
-            d = sender;
-        }
+            DataContext = new ViewModel();
+            
 
-        /// <summary>
-        /// Добавляем сотрудника
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            int _id = Int32.Parse(employeeID_textBox.Text);
-            d(_id, firstName_textBox.Text, lastName_textBox.Text, department_textBox.Text);
-            this.Close();
         }
 
         /// <summary>

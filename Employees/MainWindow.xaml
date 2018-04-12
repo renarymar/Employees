@@ -11,7 +11,7 @@
     <Window.Resources>
         <sys:String x:Key="btnAddTitle">ADD</sys:String>
     </Window.Resources>
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80*" />
@@ -23,66 +23,59 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        
+
         <ListView x:Name="EmployeeList"
                   Grid.Row="0" 
                   Grid.Column="0" 
-                  MouseDoubleClick="EmployeeList_MouseDoubleClick">
+                  ItemsSource="{Binding Employees}"
+                  SelectedItem="{Binding SelectedEmployee}"
+                  Margin="10">
+            
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Name="TextBlock_EMP" Height="18" FontSize="14" Text="{Binding}"/>
+                    <StackPanel Margin="5">
+                        <TextBlock Height="18" FontSize="14" Text="{Binding Path=FirstName}"/>
+                        <TextBlock Height="18" FontSize="14" Text="{Binding Path=LastName}"/>
+                    </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-         </ListView>
-
-        <ListView x:Name="DepartmentList" 
-                  Grid.Row="0" 
-                  Grid.Column="1" 
-                  MouseDoubleClick="DepartmentList_MouseDoubleClick">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Name="TextBlock_DEP" Height="18" FontSize="14" Text="{Binding}"/>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-
         </ListView>
+
+        <StackPanel Margin="10" Grid.Column="1" Grid.Row="0" DataContext="{Binding SelectedEmployee}">
+            <TextBlock Height="18" FontStyle="Italic" FontSize="12" Text="Табельный номер:"/>
+            <TextBlock Height="18" FontSize="14" FontWeight="Bold" Text="{Binding Path=ID}"/>
+            <TextBlock Height="18" FontStyle="Italic" FontSize="12" Text="Имя сотрудника:"/>
+            <TextBlock Height="18" FontSize="14" FontWeight="Bold" Text="{Binding Path=FirstName}"/>
+            <TextBlock Height="18" FontStyle="Italic" FontSize="12" Text="Фамилия сотрудника:"/>
+            <TextBlock Height="18" FontSize="14" FontWeight="Bold" Text="{Binding Path=LastName}"/>
+            <TextBlock Height="18" FontStyle="Italic" FontSize="12" Text="Департамент:"/>
+            <TextBlock Height="18" FontSize="14" FontWeight="Bold" Text="{Binding Path=DepartmentName}"/>
+
+        </StackPanel>
+
+
 
         <Button Grid.Column="0"
                 Grid.Row="1"
                 Name="btnAddEmplClick"
                 Height="25"
-                Width="70"
+                Width="100"
                 Margin="0,10,0,0"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
-                Content="{StaticResource btnAddTitle}" 
-                Click="BtnAddEmplClick_Click" />
-
-        <Label Grid.Column="0"
-               Grid.Row="1"
-               HorizontalAlignment="Center"
-               Content="Employees"
-               VerticalAlignment="Top"/>
-
-
+                Content="New Employee" 
+                 />
         <Button Grid.Column="1" 
                 Grid.Row="1" 
                 Height="25" 
-                Width="70" 
+                Width="100" 
                 Margin="0,10,0,0"
-                Name="btnAddDepClick"
+                Name="btnEditEmplClick"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
-                Content="{StaticResource btnAddTitle}"
-                Click="BtnAddDeptClick_Click"/>
-
-        <Label Grid.Column="1" 
-               Grid.Row="1" 
-               Content="Departments" 
-               HorizontalAlignment="Center" 
-               VerticalAlignment="Top"
-               Grid.RowSpan="2"/>
-
+                Content="Edit Employee"
+                Click="EditEmployeeButtonClick"
+                />
     </Grid>
 
 </Window>

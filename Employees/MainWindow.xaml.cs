@@ -16,112 +16,27 @@ using System.Windows.Shapes;
 
 namespace Employees
 {
-    public delegate void DeptDelegate(string data);
-    public delegate void EmplDelegate(int id, string firstName, string lastName, string departmentName);
-
 
     public partial class MainWindow : Window
     {
-        ObservableCollection<Employee> _employeesList;
-        ObservableCollection<Department> _departmentsList;
-
+        delegate Employee MyDelegate(Employee employee);
         public MainWindow()
         {
             InitializeComponent();
-            EmployeesListInitialization();
-            DepartmentsListInitialization();
-        }
-
-        void deptfunc(string data)
-        {
-            _departmentsList.Add(new Department(data));
-        }
-
-        void emplfunc(int id, string firstName, string lastName, string departmentName)
-        {
-            _employeesList.Add(new Employee(id, firstName, lastName, departmentName));
-        }
-
-        /// <summary>
-        /// Заполнение списка сотрудников
-        /// </summary>
-        void EmployeesListInitialization()
-        {
-            _employeesList = new ObservableCollection<Employee>()
-            {
-                new Employee(1, "Jane", "Black", "Marketing"),
-                new Employee(2, "Jack", "Black", "Sales"),
-                new Employee(3, "Ben", "Rolson", "IT"),
-                new Employee(4, "Patrick", "Torsley", "Accounting")
-            };
-            EmployeeList.ItemsSource = _employeesList;
-        }
-
-
-        /// <summary>
-        /// Заполнение списка департаментов
-        /// </summary>
-        void DepartmentsListInitialization()
-        {
-            _departmentsList = new ObservableCollection<Department>()
-            {
-                new Department("Marketing"),
-                new Department("Sales"),
-                new Department("IT"),
-                new Department("Accounting")
-            };
-
-            DepartmentList.ItemsSource = _departmentsList;
+            DataContext = new ViewModel();
 
         }
 
-
-        /// <summary>
-        /// Клик по кнопке ADD открывает новую форму для добавления сотрудника
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void BtnAddEmplClick_Click(object sender, RoutedEventArgs e)
+        private void EditEmployeeButtonClick(object sender, RoutedEventArgs e)
         {
-            NewEmployeeWindow newEmployeeWindow = new NewEmployeeWindow(new EmplDelegate(emplfunc));
+            NewEmployeeWindow newEmployeeWindow = new NewEmployeeWindow();
             newEmployeeWindow.Show();
-            
-        }
-         
-
-        /// <summary>
-        /// Двойной клик по элементу TextBox Департаментов (нужно доделать редактирование)
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void DepartmentList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            MessageBox.Show(DepartmentList.SelectedItem.ToString());
-        }
-
-        /// <summary>
-        /// Двойной клик по элементу TextBox Сотрудников(нужно доделать редактирование)
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void EmployeeList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            MessageBox.Show(EmployeeList.SelectedItem.ToString());
-
-        }
-
-        /// <summary>
-        /// Вызов новой форма для сотздания нового департамента
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void BtnAddDeptClick_Click(object sender, RoutedEventArgs e)
-        {
-
-            NewDepartmentWindow newDepartmentWindow = new NewDepartmentWindow(new DeptDelegate(deptfunc));
-            newDepartmentWindow.Owner = this;
-            newDepartmentWindow.Show();
             
         }
     }
 }
+
+
+
+
+

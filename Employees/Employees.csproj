@@ -58,6 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel.cs" />
     <Compile Include="NewDepartmentWindow.xaml.cs">
       <DependentUpon>NewDepartmentWindow.xaml</DependentUpon>
     </Compile>

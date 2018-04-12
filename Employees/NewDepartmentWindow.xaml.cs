@@ -22,12 +22,6 @@ namespace Employees
     public partial class NewDepartmentWindow : Window
         
     {
-        DeptDelegate d;
-        public NewDepartmentWindow(DeptDelegate sender)
-        {
-            InitializeComponent();
-            d = sender;
-        }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
@@ -40,7 +34,6 @@ namespace Employees
         /// <param name="e"></param>
         private void BtnAddDeptClick_Click(object sender, RoutedEventArgs e)
         {
-            d(department_TextBox.Text);
             this.Close();
 
         }

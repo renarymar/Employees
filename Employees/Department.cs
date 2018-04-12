@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,23 +11,28 @@ namespace Employees
     /// <summary>
     /// Класс Департамент
     /// </summary>
-    class Department
+    class Department : INotifyPropertyChanged
+
     {
-        public string DepartmentName;
-
-        /// <summary>
-        /// Конструктор для создания нового департамента
-        /// </summary>
-        /// <param name="departmentName"></param>
-        public Department(string departmentName)
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName]string property = "")
         {
-            DepartmentName = departmentName;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
 
-        public override string ToString()
+        public string departmentName;
+
+        public string DepartmentName
         {
-            return $"\t{DepartmentName}";
+            set
+            {
+                departmentName = value;
+                OnPropertyChanged("DepartmentName");
+            }
+            get => departmentName;
         }
+
 
     }
+
 }
