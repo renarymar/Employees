@@ -17,21 +17,19 @@ using System.Windows.Shapes;
 namespace Employees
 {
 
+
     public partial class MainWindow : Window
     {
-        delegate Employee MyDelegate(Employee employee);
         public MainWindow()
         {
             InitializeComponent();
             DataContext = new ViewModel();
-
         }
 
         private void EditEmployeeButtonClick(object sender, RoutedEventArgs e)
         {
             NewEmployeeWindow newEmployeeWindow = new NewEmployeeWindow();
-            newEmployeeWindow.Show();
-            
+            newEmployeeWindow.Show();            
         }
     }
 }

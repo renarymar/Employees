@@ -11,12 +11,25 @@ namespace Employees
 {
     class ViewModel : INotifyPropertyChanged
     {
-        delegate void MyDelegate(Employee employee);
-
         public ObservableCollection<Department> Departments { get; set; }
         public ObservableCollection<Employee> Employees { get; set; }
 
-        public Employee selectedEmployee;
+        private RelayCommand addCommand;
+        public RelayCommand AddCommand
+        {
+            get
+            {
+                return addCommand ??
+                  (addCommand = new RelayCommand(obj =>
+                  {
+                      Employee employee = new Employee();
+                      Employees.Insert(0, employee);
+                      SelectedEmployee = employee;
+                  }));
+            }
+        }
+
+        private Employee selectedEmployee;
         public Employee SelectedEmployee
         {
             get => selectedEmployee;
@@ -29,7 +42,7 @@ namespace Employees
 
         public ViewModel()
         {
-            Employees = new ObservableCollection<Employee>()
+            Employees = new ObservableCollection<Employee>
             {
                 new Employee {ID = 1, FirstName = "Jane", LastName = "Black", DepartmentName = "Marketing" },
                 new Employee{ID = 2, FirstName = "Jack", LastName = "Black", DepartmentName = "Sales" },
@@ -37,7 +50,7 @@ namespace Employees
                 new Employee{ID = 4, FirstName = "Patrick", LastName = "Torsley", DepartmentName = "Accounting" }
             };
 
-            Departments = new ObservableCollection<Department>()
+            Departments = new ObservableCollection<Department>
             {
                 new Department{DepartmentName = "Marketing" },
                 new Department{DepartmentName = "Sales" },
@@ -45,17 +58,6 @@ namespace Employees
                 new Department{DepartmentName = "Accounting" }
             };
 
-        }
-        
-        public void AddNewEmployee(Employee employee)
-        {
-            Employees.Add(employee);
-            
-        }
-
-        public void AddNewDepart(Department department)
-        {
-            Departments.Add(department);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

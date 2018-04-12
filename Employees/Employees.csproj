@@ -58,12 +58,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="EmployeeViewModel.cs" />
+    <Compile Include="RelayCommand.cs" />
     <Compile Include="ViewModel.cs" />
     <Compile Include="NewDepartmentWindow.xaml.cs">
       <DependentUpon>NewDepartmentWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="NewEmployeeWindow.xaml.cs">
-      <DependentUpon>NewEmployeeWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -80,10 +79,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="NewDepartmentWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="NewEmployeeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

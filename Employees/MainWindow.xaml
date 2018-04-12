@@ -9,7 +9,16 @@
         Title="СОТРУДНИКИ" Height="360" Width="525">
 
     <Window.Resources>
-        <sys:String x:Key="btnAddTitle">ADD</sys:String>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Margin" Value="5" />
+        </Style>
     </Window.Resources>
 
     <Grid>
@@ -24,58 +33,36 @@
         </Grid.ColumnDefinitions>
 
 
-        <ListView x:Name="EmployeeList"
-                  Grid.Row="0" 
+        <ListBox Grid.Row="0" 
                   Grid.Column="0" 
                   ItemsSource="{Binding Employees}"
                   SelectedItem="{Binding SelectedEmployee}"
                   Margin="10">
-            
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Margin="5">
+                        <TextBlock Height="18" FontSize="14" Text="{Binding Path=ID}"/>
                         <TextBlock Height="18" FontSize="14" Text="{Binding Path=FirstName}"/>
                         <TextBlock Height="18" FontSize="14" Text="{Binding Path=LastName}"/>
+                        <TextBlock Height="18" FontSize="14" Text="{Binding Path=DepartmentName}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-        </ListView>
+        </ListBox>
+
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Command="{Binding AddCommand}">Add Employee</Button>
+        </StackPanel>
 
         <StackPanel Margin="10" Grid.Column="1" Grid.Row="0" DataContext="{Binding SelectedEmployee}">
             <TextBlock Height="18" FontStyle="Italic" FontSize="12" Text="Табельный номер:"/>
-            <TextBlock Height="18" FontSize="14" FontWeight="Bold" Text="{Binding Path=ID}"/>
+            <TextBox Height="20" FontSize="14" FontWeight="Bold" Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Height="18" FontStyle="Italic" FontSize="12" Text="Имя сотрудника:"/>
-            <TextBlock Height="18" FontSize="14" FontWeight="Bold" Text="{Binding Path=FirstName}"/>
+            <TextBox Height="20" FontSize="14" FontWeight="Bold" Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Height="18" FontStyle="Italic" FontSize="12" Text="Фамилия сотрудника:"/>
-            <TextBlock Height="18" FontSize="14" FontWeight="Bold" Text="{Binding Path=LastName}"/>
+            <TextBox Height="20" FontSize="14" FontWeight="Bold" Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Height="18" FontStyle="Italic" FontSize="12" Text="Департамент:"/>
-            <TextBlock Height="18" FontSize="14" FontWeight="Bold" Text="{Binding Path=DepartmentName}"/>
-
+            <TextBox Height="20" FontSize="14" FontWeight="Bold" Text="{Binding DepartmentName, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
-
-
-
-        <Button Grid.Column="0"
-                Grid.Row="1"
-                Name="btnAddEmplClick"
-                Height="25"
-                Width="100"
-                Margin="0,10,0,0"
-                VerticalAlignment="Center"
-                HorizontalAlignment="Center"
-                Content="New Employee" 
-                 />
-        <Button Grid.Column="1" 
-                Grid.Row="1" 
-                Height="25" 
-                Width="100" 
-                Margin="0,10,0,0"
-                Name="btnEditEmplClick"
-                VerticalAlignment="Center"
-                HorizontalAlignment="Center"
-                Content="Edit Employee"
-                Click="EditEmployeeButtonClick"
-                />
     </Grid>
-
 </Window>

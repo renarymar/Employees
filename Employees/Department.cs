@@ -15,10 +15,6 @@ namespace Employees
 
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName]string property = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
-        }
 
         public string departmentName;
 
@@ -32,7 +28,10 @@ namespace Employees
             get => departmentName;
         }
 
-
+        public void OnPropertyChanged([CallerMemberName]string property = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
+        }
     }
 
 }

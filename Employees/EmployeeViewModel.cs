@@ -8,64 +8,56 @@ using System.Threading.Tasks;
 
 namespace Employees
 {
-    /// <summary>
-    /// Класс Сотрудник
-    /// </summary>
-    class Employee : INotifyPropertyChanged
+    class EmployeeViewModel : INotifyPropertyChanged
     {
-        private int id;
-        private string firstName;
-        private string lastName;
-        private string departmentName;
+        private Employee employee;
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public EmployeeViewModel(Employee e)
+        {
+            employee = e;
+        }
 
         public int ID
         {
+            get => employee.ID; 
             set
             {
-                id = value;
+                employee.ID = value;
                 OnPropertyChanged("ID");
             }
-            get => id;
-            
         }
         public string FirstName
         {
+            get => employee.FirstName;
             set
             {
-                firstName = value;
+                employee.FirstName = value;
                 OnPropertyChanged("FirstName");
             }
-            get => firstName;
-
         }
         public string LastName
         {
+            get =>employee.LastName;
             set
             {
-                lastName = value;
+                employee.LastName = value;
                 OnPropertyChanged("LastName");
             }
-            get => lastName;
-
         }
         public string DepartmentName
         {
+            get => employee.DepartmentName;
             set
             {
-                departmentName = value;
+                employee.DepartmentName = value;
                 OnPropertyChanged("DepartmentName");
             }
-            get => departmentName;
-
         }
 
-        public void OnPropertyChanged([CallerMemberName]string property = "")
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName]string prop = "")
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
-
-
     }
 }
