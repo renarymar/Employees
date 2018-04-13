@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Employees"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="СОТРУДНИКИ" Height="360" Width="525">
+        Title="СОТРУДНИКИ" Height="360" Width="1000">
 
     <Window.Resources>
         <Style TargetType="TextBlock">
@@ -28,8 +28,10 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="50*" />
+            <ColumnDefinition Width="30*" />
+            <ColumnDefinition Width="20*" />
+
         </Grid.ColumnDefinitions>
 
 
@@ -40,10 +42,10 @@
                   Margin="10">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=ID}">ID</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=FirstName}" Width="100">Имя</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=LastName}">Фамилия</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=DepartmentName}">Должность</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=ID}" Width="50">ID</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=FirstName}" Width="140">Имя</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=LastName}" Width="150">Фамилия</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=DepartmentName}" Width="130">Департамент</GridViewColumn>
                 </GridView>
             </ListView.View>
             <ListView.ItemTemplate>
@@ -63,6 +65,8 @@
         </StackPanel>
 
         <StackPanel Margin="10" Grid.Column="1" Grid.Row="0" DataContext="{Binding SelectedEmployee}">
+            <Label Content="Текущий Сотрудник" FontWeight="Bold" FontSize="14" Grid.Column="2" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Top"/>
+
             <TextBlock Height="18" FontStyle="Italic" FontSize="12" Text="Табельный номер:"/>
             <TextBox Height="20" FontSize="14" FontWeight="Bold" Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Height="18" FontStyle="Italic" FontSize="12" Text="Имя сотрудника:"/>
@@ -87,8 +91,27 @@
                 </ListBox>
             </ComboBox>
         </StackPanel>
+        <StackPanel>
+            
+        </StackPanel>
         
-
-
+        <Label Content="Список Департаментов" FontWeight="Bold" FontSize="14" Grid.Column="2" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Top"/>
+        <ListView Grid.Column="2" Margin="0,40,0,0" ItemsSource="{Binding Departments}" Width="130">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=DepName}" Width="130">Наименование</GridViewColumn>
+                </GridView>
+            </ListView.View>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="5">
+                        <TextBox Height="18" FontSize="14" Text="{Binding Path=DepName, UpdateSourceTrigger=PropertyChanged}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Command="{Binding AddDepartment}">Add Department</Button>
+        </StackPanel>
     </Grid>
 </Window>

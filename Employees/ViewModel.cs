@@ -13,6 +13,7 @@ namespace Employees
     {
         public ObservableCollection<Department> Departments { get; set; }
         public ObservableCollection<Employee> Employees { get; set; }
+        delegate string AddingDepartment(string departmentName);
 
         private RelayCommand addEmployee;
         public RelayCommand AddEmployee
@@ -38,7 +39,7 @@ namespace Employees
                   (addDepartment = new RelayCommand(obj =>
                   {
                       Department department = new Department();
-                      Departments.Add(department);
+                      Departments.Insert(0,department);
                   }));
             }
         }
