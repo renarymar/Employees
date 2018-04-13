@@ -24,11 +24,21 @@ namespace Employees
             this.canExecute = canExecute;
         }
 
+        /// <summary>
+        /// Определяем, может ли команда выполняться
+        /// </summary>
+        /// <returns><c>true</c>, if execute was caned, <c>false</c> otherwise.</returns>
+        /// <param name="parameter">Parameter.</param>
         public bool CanExecute(object parameter)
         {
             return this.canExecute == null || this.canExecute(parameter);
         }
 
+        /// <summary>
+        /// Выполняем логику команды
+        /// </summary>
+        /// <returns>The execute.</returns>
+        /// <param name="parameter">Parameter.</param>
         public void Execute(object parameter)
         {
             this.execute(parameter);
