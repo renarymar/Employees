@@ -20,7 +20,6 @@ C:\Users\kirascreation\source\repos\Employees\Employees\obj\Debug\NewDepartmentW
 C:\Users\kirascreation\Desktop\GeekBrains\C#_Level_2\Employees\Employees\obj\Debug\Employees.csprojResolveAssemblyReference.cache
 C:\Users\kirascreation\Desktop\GeekBrains\C#_Level_2\Employees\Employees\obj\Debug\MainWindow.g.cs
 C:\Users\kirascreation\Desktop\GeekBrains\C#_Level_2\Employees\Employees\obj\Debug\NewDepartmentWindow.g.cs
-C:\Users\kirascreation\Desktop\GeekBrains\C#_Level_2\Employees\Employees\obj\Debug\NewEmployeeWindow.g.cs
 C:\Users\kirascreation\Desktop\GeekBrains\C#_Level_2\Employees\Employees\obj\Debug\App.g.cs
 C:\Users\kirascreation\Desktop\GeekBrains\C#_Level_2\Employees\Employees\obj\Debug\Employees_MarkupCompile.cache
 C:\Users\kirascreation\Desktop\GeekBrains\C#_Level_2\Employees\Employees\obj\Debug\Employees_MarkupCompile.lref
@@ -31,7 +30,6 @@ C:\Users\kirascreation\Desktop\GeekBrains\C#_Level_2\Employees\Employees\bin\Deb
 C:\Users\kirascreation\Desktop\GeekBrains\C#_Level_2\Employees\Employees\bin\Debug\Employees.pdb
 C:\Users\kirascreation\Desktop\GeekBrains\C#_Level_2\Employees\Employees\obj\Debug\MainWindow.baml
 C:\Users\kirascreation\Desktop\GeekBrains\C#_Level_2\Employees\Employees\obj\Debug\NewDepartmentWindow.baml
-C:\Users\kirascreation\Desktop\GeekBrains\C#_Level_2\Employees\Employees\obj\Debug\NewEmployeeWindow.baml
 C:\Users\kirascreation\Desktop\GeekBrains\C#_Level_2\Employees\Employees\obj\Debug\Employees.g.resources
 C:\Users\kirascreation\Desktop\GeekBrains\C#_Level_2\Employees\Employees\obj\Debug\Employees.Properties.Resources.resources
 C:\Users\kirascreation\Desktop\GeekBrains\C#_Level_2\Employees\Employees\obj\Debug\Employees.csproj.GenerateResource.Cache

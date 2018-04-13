@@ -25,12 +25,6 @@ namespace Employees
             InitializeComponent();
             DataContext = new ViewModel();
         }
-
-        private void EditEmployeeButtonClick(object sender, RoutedEventArgs e)
-        {
-            NewEmployeeWindow newEmployeeWindow = new NewEmployeeWindow();
-            newEmployeeWindow.Show();            
-        }
     }
 }
 

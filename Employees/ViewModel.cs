@@ -14,17 +14,31 @@ namespace Employees
         public ObservableCollection<Department> Departments { get; set; }
         public ObservableCollection<Employee> Employees { get; set; }
 
-        private RelayCommand addCommand;
-        public RelayCommand AddCommand
+        private RelayCommand addEmployee;
+        public RelayCommand AddEmployee
         {
             get
             {
-                return addCommand ??
-                  (addCommand = new RelayCommand(obj =>
+                return addEmployee ??
+                  (addEmployee = new RelayCommand(obj =>
                   {
                       Employee employee = new Employee();
-                      Employees.Insert(0, employee);
+                      Employees.Add(employee);
                       SelectedEmployee = employee;
+                  }));
+            }
+        }
+
+        private RelayCommand addDepartment;
+        public RelayCommand AddDepartment
+        {
+            get
+            {
+                return addDepartment ??
+                  (addDepartment = new RelayCommand(obj =>
+                  {
+                      Department department = new Department();
+                      Departments.Add(department);
                   }));
             }
         }
@@ -52,10 +66,10 @@ namespace Employees
 
             Departments = new ObservableCollection<Department>
             {
-                new Department{DepartmentName = "Marketing" },
-                new Department{DepartmentName = "Sales" },
-                new Department{DepartmentName = "IT" },
-                new Department{DepartmentName = "Accounting" }
+                new Department{DepName = "Marketing" },
+                new Department{DepName = "Sales" },
+                new Department{DepName = "IT" },
+                new Department{DepName = "Accounting" }
             };
 
         }

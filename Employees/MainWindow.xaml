@@ -33,12 +33,20 @@
         </Grid.ColumnDefinitions>
 
 
-        <ListBox Grid.Row="0" 
+        <ListView Grid.Row="0" 
                   Grid.Column="0" 
                   ItemsSource="{Binding Employees}"
                   SelectedItem="{Binding SelectedEmployee}"
                   Margin="10">
-            <ListBox.ItemTemplate>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=ID}">ID</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=FirstName}" Width="100">Имя</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=LastName}">Фамилия</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=DepartmentName}">Должность</GridViewColumn>
+                </GridView>
+            </ListView.View>
+            <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Margin="5">
                         <TextBlock Height="18" FontSize="14" Text="{Binding Path=ID}"/>
@@ -47,11 +55,11 @@
                         <TextBlock Height="18" FontSize="14" Text="{Binding Path=DepartmentName}"/>
                     </StackPanel>
                 </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+            </ListView.ItemTemplate>
+        </ListView>
 
         <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Command="{Binding AddCommand}">Add Employee</Button>
+            <Button Command="{Binding AddEmployee}">Add Employee</Button>
         </StackPanel>
 
         <StackPanel Margin="10" Grid.Column="1" Grid.Row="0" DataContext="{Binding SelectedEmployee}">
@@ -62,7 +70,25 @@
             <TextBlock Height="18" FontStyle="Italic" FontSize="12" Text="Фамилия сотрудника:"/>
             <TextBox Height="20" FontSize="14" FontWeight="Bold" Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Height="18" FontStyle="Italic" FontSize="12" Text="Департамент:"/>
-            <TextBox Height="20" FontSize="14" FontWeight="Bold" Text="{Binding DepartmentName, UpdateSourceTrigger=PropertyChanged}"/>
+            <ComboBox Name="departmentsList" Height="30" VerticalAlignment="Top" ItemsSource="{Binding Departments}">
+                <ComboBoxItem IsSelected="True">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Height="20" FontSize="14" FontWeight="Bold" Text="{Binding DepartmentName, UpdateSourceTrigger=PropertyChanged}"/>
+                    </StackPanel>
+                </ComboBoxItem>
+                <ListBox ItemsSource="{Binding Departments}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="5">
+                                <TextBlock Height="18" FontSize="14" Text="{Binding Path=DepName}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </ComboBox>
         </StackPanel>
+        
+
+
     </Grid>
 </Window>

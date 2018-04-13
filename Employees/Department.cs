@@ -14,18 +14,17 @@ namespace Employees
     class Department : INotifyPropertyChanged
 
     {
+        private string depName;
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public string departmentName;
-
-        public string DepartmentName
+        public string DepName
         {
             set
             {
-                departmentName = value;
-                OnPropertyChanged("DepartmentName");
+                depName = value;
+                OnPropertyChanged("DepName");
             }
-            get => departmentName;
+            get => depName;
         }
 
         public void OnPropertyChanged([CallerMemberName]string property = "")
