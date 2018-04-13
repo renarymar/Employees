@@ -9,12 +9,18 @@ using System.Collections.ObjectModel;
 
 namespace Employees
 {
+    /// <summary>
+    /// Класс модели представления, через который будут связаны Employees/Departments и MainWindow.
+    /// </summary>
     class ViewModel : INotifyPropertyChanged
     {
         public ObservableCollection<Department> Departments { get; set; }
         public ObservableCollection<Employee> Employees { get; set; }
         delegate string AddingDepartment(string departmentName);
 
+        /// <summary>
+        /// Команда для триггера кнопки Add Employee
+        /// </summary>
         private RelayCommand addEmployee;
         public RelayCommand AddEmployee
         {
@@ -30,6 +36,9 @@ namespace Employees
             }
         }
 
+        /// <summary>
+        /// Команда для триггера кнопки Add Department
+        /// </summary>
         private RelayCommand addDepartment;
         public RelayCommand AddDepartment
         {
@@ -44,6 +53,9 @@ namespace Employees
             }
         }
 
+        /// <summary>
+        /// Свойство, которое указывает на выделенный элемент в списке Employees
+        /// </summary>
         private Employee selectedEmployee;
         public Employee SelectedEmployee
         {
@@ -55,6 +67,9 @@ namespace Employees
             }
         }
 
+        /// <summary>
+        /// Инициализация коллекций сотрудников и департаментов
+        /// </summary>
         public ViewModel()
         {
             Employees = new ObservableCollection<Employee>
@@ -75,6 +90,9 @@ namespace Employees
 
         }
 
+        /// <summary>
+        /// Реализация уведомления об изменениях свойств объектов
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string property = "")
         {
