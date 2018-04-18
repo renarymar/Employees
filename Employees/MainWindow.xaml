@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Employees"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="СОТРУДНИКИ" Height="360" Width="1000">
+        Title="СОТРУДНИКИ" Height="400" Width="600">
 
     <Window.Resources>
         <Style TargetType="TextBlock">
@@ -28,12 +28,8 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50*" />
-            <ColumnDefinition Width="30*" />
-            <ColumnDefinition Width="20*" />
-
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-
 
         <ListView Grid.Row="0" 
                   Grid.Column="0"
@@ -63,56 +59,6 @@
         <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Content="Add" Margin="10" Click="Add_Click" />
             <Button Content="Edit" Margin="10" Click="Edit_Click"  />
-        </StackPanel>
-
-        <StackPanel Margin="10" Grid.Column="1" Grid.Row="0" DataContext="{Binding SelectedEmployee}">
-            <Label Content="Текущий Сотрудник" FontWeight="Bold" FontSize="14" Grid.Column="2" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Top"/>
-
-            <TextBlock Height="18" FontStyle="Italic" FontSize="12" Text="Табельный номер:"/>
-            <TextBox Height="20" FontSize="14" FontWeight="Bold" Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Height="18" FontStyle="Italic" FontSize="12" Text="Имя сотрудника:"/>
-            <TextBox Height="20" FontSize="14" FontWeight="Bold" Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Height="18" FontStyle="Italic" FontSize="12" Text="Фамилия сотрудника:"/>
-            <TextBox Height="20" FontSize="14" FontWeight="Bold" Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Height="18" FontStyle="Italic" FontSize="12" Text="Департамент:"/>
-            <ComboBox Name="departmentsList" Height="30" VerticalAlignment="Top" ItemsSource="{Binding Departments}">
-                <ComboBoxItem IsSelected="True">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Height="20" FontSize="14" FontWeight="Bold" Text="{Binding DepartmentName, UpdateSourceTrigger=PropertyChanged}"/>
-                    </StackPanel>
-                </ComboBoxItem>
-                <ListBox ItemsSource="{Binding Departments}">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Margin="5">
-                                <TextBlock Height="18" FontSize="14" Text="{Binding Path=DepName}"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-            </ComboBox>
-        </StackPanel>
-        <StackPanel>
-            
-        </StackPanel>
-        
-        <Label Content="Список Департаментов" FontWeight="Bold" FontSize="14" Grid.Column="2" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Top"/>
-        <ListView Grid.Column="2" Margin="0,40,0,0" ItemsSource="{Binding Departments}" Width="130">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=DepName}" Width="130">Наименование</GridViewColumn>
-                </GridView>
-            </ListView.View>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Margin="5">
-                        <TextBox Height="18" FontSize="14" Text="{Binding Path=DepName, UpdateSourceTrigger=PropertyChanged}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Command="{Binding AddDepartment}">Add Department</Button>
         </StackPanel>
     </Grid>
 </Window>
