@@ -11,7 +11,7 @@ namespace Employees
     /// <summary>
     /// Класс Сотрудник
     /// </summary>
-    class Employee : INotifyPropertyChanged
+    public class Employee : INotifyPropertyChanged
     {
         private int id;
         private string firstName;

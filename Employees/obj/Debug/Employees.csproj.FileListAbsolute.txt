@@ -32,3 +32,16 @@ C:\Users\kirascreation\Desktop\GeekBrains\C#_Level_2\Employees\Employees\obj\Deb
 C:\Users\kirascreation\Desktop\GeekBrains\C#_Level_2\Employees\Employees\obj\Debug\Employees.Properties.Resources.resources
 C:\Users\kirascreation\Desktop\GeekBrains\C#_Level_2\Employees\Employees\obj\Debug\Employees.csproj.GenerateResource.Cache
 C:\Users\kirascreation\Desktop\GeekBrains\C#_Level_2\Employees\Employees\obj\Debug\Employees.csproj.CoreCompileInputs.cache
+C:\Users\kirascreation\Desktop\GeekBrains\C#_Level_2\Employees\Employees\obj\Debug\EmployeeWindow.g.cs
+C:\Users\kirascreation\Desktop\GeekBrains\C#_Level_2\Employees\Employees\bin\Debug\hr.db
+C:\Users\kirascreation\Desktop\GeekBrains\C#_Level_2\Employees\Employees\bin\Debug\EntityFramework.dll
+C:\Users\kirascreation\Desktop\GeekBrains\C#_Level_2\Employees\Employees\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\kirascreation\Desktop\GeekBrains\C#_Level_2\Employees\Employees\bin\Debug\System.Data.SQLite.dll
+C:\Users\kirascreation\Desktop\GeekBrains\C#_Level_2\Employees\Employees\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\kirascreation\Desktop\GeekBrains\C#_Level_2\Employees\Employees\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\kirascreation\Desktop\GeekBrains\C#_Level_2\Employees\Employees\bin\Debug\EntityFramework.xml
+C:\Users\kirascreation\Desktop\GeekBrains\C#_Level_2\Employees\Employees\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\kirascreation\Desktop\GeekBrains\C#_Level_2\Employees\Employees\bin\Debug\System.Data.SQLite.xml
+C:\Users\kirascreation\Desktop\GeekBrains\C#_Level_2\Employees\Employees\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\kirascreation\Desktop\GeekBrains\C#_Level_2\Employees\Employees\obj\Debug\EmployeeWindow.baml
+C:\Users\kirascreation\Desktop\GeekBrains\C#_Level_2\Employees\Employees\obj\Debug\Employees.csproj.CopyComplete

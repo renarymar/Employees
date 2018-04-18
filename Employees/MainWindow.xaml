@@ -36,8 +36,8 @@
 
 
         <ListView Grid.Row="0" 
-                  Grid.Column="0" 
-                  ItemsSource="{Binding Employees}"
+                  Grid.Column="0"
+                  x:Name="employeesList" ItemsSource="{Binding}"
                   SelectedItem="{Binding SelectedEmployee}"
                   Margin="10">
             <ListView.View>
@@ -61,7 +61,8 @@
         </ListView>
 
         <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Command="{Binding AddEmployee}">Add Employee</Button>
+            <Button Content="Add" Margin="10" Click="Add_Click" />
+            <Button Content="Edit" Margin="10" Click="Edit_Click"  />
         </StackPanel>
 
         <StackPanel Margin="10" Grid.Column="1" Grid.Row="0" DataContext="{Binding SelectedEmployee}">
